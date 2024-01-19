@@ -42,7 +42,6 @@ export function Login({ setAuth }) {
             })
             .then((res) => {
                 setAuth(username, res.data.token)
-                console.log(res.data.token)
                 navigate('/')
             })
             .catch((err) => setError(err.response.data.non_field_errors[0]))
