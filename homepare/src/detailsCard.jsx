@@ -3,7 +3,7 @@ import Preview from "./listingInput"
 import { list } from "postcss"
 import axios from "axios"
 
-export function DetailsCard({address, previewImage, squareFootage, bathrooms, bedrooms, propertyType, hoa, garage, price, listingId, halfBathrooms }) {
+export function DetailsCard({token, address, previewImage, squareFootage, bathrooms, bedrooms, propertyType, hoa, garage, price, listingId, halfBathrooms }) {
 
     const [notesInput, setNotesInput] = useState("")
     
@@ -22,11 +22,12 @@ export function DetailsCard({address, previewImage, squareFootage, bathrooms, be
             images: previewImage
         }, {
             headers: {
-                authorization: "x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWExYjUzMjJmNzYzM2Q4MDZmNjFjMGYiLCJpYXQiOjE3MDU2Mjg0MjcsImV4cCI6MTcwNTcxNDgyN30._5Ql6FLu32qgTy_vs1mE0vyN_bUUppPmSdmshsDB4Bw"
+                authorization: `x-access-token ${token}`
             }
         })
     }
 
+    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWExYjUzMjJmNzYzM2Q4MDZmNjFjMGYiLCJpYXQiOjE3MDU2Mjg0MjcsImV4cCI6MTcwNTcxNDgyN30._5Ql6FLu32qgTy_vs1mE0vyN_bUUppPmSdmshsDB4Bw
     // const handleSaveNotes = () => {
     //     // post notes to API
     //     // will this need homeID?

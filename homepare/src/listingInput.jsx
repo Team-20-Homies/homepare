@@ -5,17 +5,17 @@ import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
 import { DetailsCard } from "./detailsCard";
 
-export function ListingInput() {
+export function ListingInput( {token} ) {
 
     return (
         <>
         <h2>Input the street address, city, and state of the listing you are trying to find:</h2>
-        <SearchBar />
+        <SearchBar token={token} />
         </>
     )
 }
 
-export function Preview( { address, previewImage, squareFootage, bathrooms, bedrooms, propertyType, hoa, garage, price, listingId, halfBathrooms} ) {
+export function Preview( { token, address, previewImage, squareFootage, bathrooms, bedrooms, propertyType, hoa, garage, price, listingId, halfBathrooms} ) {
 
     const previewWidth = "100px";
     const [opened, { open, close }] = useDisclosure(false);
@@ -36,6 +36,7 @@ export function Preview( { address, previewImage, squareFootage, bathrooms, bedr
             garage={garage}
             price={price}
             listingId={listingId}
+            token={token}
             />
         </Modal>
         <div
@@ -50,7 +51,7 @@ export function Preview( { address, previewImage, squareFootage, bathrooms, bedr
     )
 }
 
-const SearchBar = () => {
+const SearchBar = ( {token} ) => {
     const [input, setInput] = useState('');
     const [listingList, setListingList] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -98,6 +99,7 @@ const SearchBar = () => {
                     hoa={listing.hoa}
                     // garage={listing.garage}
                     price={listing.assessment.market.mktTtlValue}
+                    token={token}
                 />
                 
             )
