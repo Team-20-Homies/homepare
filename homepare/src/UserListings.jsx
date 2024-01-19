@@ -1,7 +1,5 @@
-import { ListingDetails } from './ListingDetails'
-import { DetailsCard } from './detailsCard'
+import { ListingDetailsCard } from './ListingDetails'
 import { ListingInput } from './listingInput'
-import homeData from './data/homes.json'
 import { useEffect, useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
@@ -26,7 +24,7 @@ export function UserListings({token}) {
             authorization: `x-access-token ${token}`
             }
     }).then((res) => {
-    console.log(res.data.homes);
+    console.log(`homes from db ${res.data.homes}`);
     setMyListings(res.data.homes)})
     }, [])
 
@@ -37,8 +35,8 @@ export function UserListings({token}) {
             return (
         <>
         <Modal opened={opened} onClose={close} centered>
-            <DetailsCard 
-            // myListings={myListings}
+            <ListingDetailsCard 
+            myListings={myListings}
             key={mylisting._id}
             address={mylisting.address}
             previewImage={mylisting.images[0]}

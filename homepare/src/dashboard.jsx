@@ -31,7 +31,7 @@ export function Dashboard( {myListings, token} ) {
         {activeTab === TABNAMES.MY_LISTINGS && <UserListings token={token}
         myListings={myListings}
         />}
-        {activeTab === TABNAMES.MY_COLLECTIONS &&<UserCollections />}
+        {activeTab === TABNAMES.MY_COLLECTIONS &&<UserCollections token={token}/>}
 
       
 

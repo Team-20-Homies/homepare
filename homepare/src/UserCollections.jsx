@@ -3,7 +3,6 @@ import { ComparisonTable } from './comparisonTable'
 import homeData from './data/homes.json'
 import { Modal, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { DetailsCard } from './detailsCard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 

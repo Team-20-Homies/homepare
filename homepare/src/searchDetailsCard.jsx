@@ -3,9 +3,8 @@ import Preview from "./listingInput"
 import { list } from "postcss"
 import axios from "axios"
 
-export function DetailsCard({token, address, previewImage, squareFootage, bathrooms, bedrooms, propertyType, hoa, garage, price, listingId, halfBathrooms }) {
+export function SearchDetailsCard({token, address, previewImage, squareFootage, bathrooms, bedrooms, propertyType, hoa, garage, price, listingId, halfBathrooms }) {
 
-    const [notesInput, setNotesInput] = useState("")
     
     const handleAddListingClick = () => {
         // post listing to db

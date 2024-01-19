@@ -11,8 +11,8 @@ import { Questionnaire } from './questionnaire'
 import { Checklist } from './checklist'
 import { CollectionDetail } from './CollectionDetail'
 import { ComparisonTable } from './comparisonTable'
-import { DetailsCard } from './detailsCard'
-import { ListingDetails } from './ListingDetails'
+import { SearchDetailsCard } from './searchDetailsCard'
+import { ListingDetailsCard } from './ListingDetails'
 import { UserAccount } from './UserAccount'
 import { UserListings } from './UserListings'
 import { UserCollections } from './UserCollections'
@@ -66,11 +66,11 @@ function App() {
       />
       <Route
       path="detailsCard"
-      element={<DetailsCard username={username} token={token}/>}
+      element={<SearchDetailsCard username={username} token={token}/>}
       />
       <Route
-      path="ListingDetails"
-      element={<Menu><ListingDetails username={username} token={token}/></Menu>}
+      path="ListingDetailsCard"
+      element={<Menu><ListingDetailsCard username={username} token={token}/></Menu>}
       />
       <Route
       path="UserAccount"

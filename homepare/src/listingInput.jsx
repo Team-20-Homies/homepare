@@ -3,7 +3,7 @@ import axios from "axios";
 import homeData from "./data/homes.json";
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
-import { DetailsCard } from "./detailsCard";
+import { SearchDetailsCard } from "./searchDetailsCard";
 
 export function ListingInput( {token} ) {
 
@@ -24,7 +24,7 @@ export function Preview( { token, address, previewImage, squareFootage, bathroom
     return (
         <>
         <Modal opened={opened} onClose={close} centered>
-            <DetailsCard 
+            <SearchDetailsCard 
             address={address}
             previewImage={previewImage}
             squareFootage={squareFootage}

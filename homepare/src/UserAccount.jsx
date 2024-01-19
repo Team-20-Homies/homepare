@@ -2,7 +2,7 @@ import { TextInput, Button } from "@mantine/core"
 import { Link } from "react-router-dom"
 
 
-export function UserAccount() {
+export function UserAccount( {token} ) {
    return (
     <>
     <div className="w-full h-screen flex justify-center items-center">
@@ -22,6 +22,7 @@ export function UserAccount() {
     />
     <br></br>
     <Button>Save</Button>
+    {/* Save will be PUT request with token - I think we still would need this endpoint from the backend - Freddie*/}
     &nbsp;
     <Link to="/logout"><Button>Logout?</Button></Link>
     </div>
