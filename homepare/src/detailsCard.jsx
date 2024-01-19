@@ -19,26 +19,25 @@ export function DetailsCard({address, previewImage, squareFootage, bathrooms, be
             living_area: squareFootage, 
             garage: garage,
             hoa: hoa,
-            images: previewImage,
-            _id: "65a964860d510426f17e193e"
+            images: previewImage
         }, {
             headers: {
-                authorization: "x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXI5IiwiaWF0IjoxNzA1NTk1NDY5LCJleHAiOjE3MDU2ODE4Njl9.S1kPErLtGajmty_NF5sOUEle56onmCjpZ9svk-K1eOc"
+                authorization: "x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWExYjUzMjJmNzYzM2Q4MDZmNjFjMGYiLCJpYXQiOjE3MDU2Mjg0MjcsImV4cCI6MTcwNTcxNDgyN30._5Ql6FLu32qgTy_vs1mE0vyN_bUUppPmSdmshsDB4Bw"
             }
         })
     }
 
-    const handleSaveNotes = () => {
-        // post notes to API
-        // will this need homeID?
-        axios.put('https://homepare-backend.onrender.com/homes/:65a9f61012ba3ffb96a22617', {
-            notes: notesInput
-        }, {
-            headers: {
-                authorization: "x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXI5IiwiaWF0IjoxNzA1NTk1NDY5LCJleHAiOjE3MDU2ODE4Njl9.S1kPErLtGajmty_NF5sOUEle56onmCjpZ9svk-K1eOc"
-            }
-        })
-    }
+    // const handleSaveNotes = () => {
+    //     // post notes to API
+    //     // will this need homeID?
+    //     axios.put('https://homepare-backend.onrender.com/homes/:65a9f61012ba3ffb96a22617', {
+    //         notes: notesInput
+    //     }, {
+    //         headers: {
+    //             authorization: "x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXI5IiwiaWF0IjoxNzA1NTk1NDY5LCJleHAiOjE3MDU2ODE4Njl9.S1kPErLtGajmty_NF5sOUEle56onmCjpZ9svk-K1eOc"
+    //         }
+    //     })
+    // }
 
     const imgWidth = "200px";
     
@@ -60,7 +59,7 @@ export function DetailsCard({address, previewImage, squareFootage, bathrooms, be
             <label>
                 Comments/Notes:
                 <textarea onChange={(e)=>setNotesInput(e.target.value)} name="comments" rows={8} cols={40} />
-                <button onClick={handleSaveNotes}>Save</button>
+                {/* <button onClick={handleSaveNotes}>Save</button> */}
             </label>
             <button onClick={handleAddListingClick}>
                 Add to My Listings</button>
