@@ -38,6 +38,7 @@ export function UserListings() {
         <Modal opened={opened} onClose={close} centered>
             <DetailsCard 
             // myListings={myListings}
+            key={mylisting._id}
             address={mylisting.address}
             previewImage={mylisting.images[0]}
             squareFootage={mylisting.living_area}

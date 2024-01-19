@@ -5,11 +5,9 @@ import axios from "axios"
 
 export function DetailsCard({address, previewImage, squareFootage, bathrooms, bedrooms, propertyType, hoa, garage, price, listingId, halfBathrooms }) {
 
-    const [addListing, setAddListing] = useState([])
+    const [notesInput, setNotesInput] = useState("")
     
     const handleAddListingClick = () => {
-        console.log("add listing button")
-        setAddListing()
         // post listing to db
         axios.post('https://homepare-backend.onrender.com/homes', {
             address: address,
@@ -22,7 +20,8 @@ export function DetailsCard({address, previewImage, squareFootage, bathrooms, be
             garage: garage,
             hoa: hoa,
             images: previewImage,
-            _id: "65a964860d510426f17e193e"
+            _id: "65a964860d510426f17e193e",
+            notes: notesInput
         }, {
             headers: {
                 authorization: "x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXI5IiwiaWF0IjoxNzA1NTk1NDY5LCJleHAiOjE3MDU2ODE4Njl9.S1kPErLtGajmty_NF5sOUEle56onmCjpZ9svk-K1eOc"
@@ -32,6 +31,14 @@ export function DetailsCard({address, previewImage, squareFootage, bathrooms, be
 
     const handleSaveNotes = () => {
         // post notes to API
+        // will this need homeID?
+        axios.post('https://homepare-backend.onrender.com/homes', {
+            notes: notesInput
+        }, {
+            headers: {
+                authorization: "x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXI5IiwiaWF0IjoxNzA1NTk1NDY5LCJleHAiOjE3MDU2ODE4Njl9.S1kPErLtGajmty_NF5sOUEle56onmCjpZ9svk-K1eOc"
+            }
+        })
     }
 
     const imgWidth = "200px";
@@ -53,7 +60,7 @@ export function DetailsCard({address, previewImage, squareFootage, bathrooms, be
             <p>Garage: {garage}</p>
             <label>
                 Comments/Notes:
-                <textarea name="comments" rows={8} cols={40} />
+                <textarea onChange={(e)=>setNotesInput(e.target.value)} name="comments" rows={8} cols={40} />
                 <button onClick={handleSaveNotes}>Save</button>
             </label>
             <button onClick={handleAddListingClick}>
