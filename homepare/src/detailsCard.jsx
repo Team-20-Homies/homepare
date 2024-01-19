@@ -20,8 +20,7 @@ export function DetailsCard({address, previewImage, squareFootage, bathrooms, be
             garage: garage,
             hoa: hoa,
             images: previewImage,
-            _id: "65a964860d510426f17e193e",
-            notes: notesInput
+            _id: "65a964860d510426f17e193e"
         }, {
             headers: {
                 authorization: "x-access-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXI5IiwiaWF0IjoxNzA1NTk1NDY5LCJleHAiOjE3MDU2ODE4Njl9.S1kPErLtGajmty_NF5sOUEle56onmCjpZ9svk-K1eOc"
@@ -32,7 +31,7 @@ export function DetailsCard({address, previewImage, squareFootage, bathrooms, be
     const handleSaveNotes = () => {
         // post notes to API
         // will this need homeID?
-        axios.post('https://homepare-backend.onrender.com/homes', {
+        axios.put('https://homepare-backend.onrender.com/homes/:65a9f61012ba3ffb96a22617', {
             notes: notesInput
         }, {
             headers: {
