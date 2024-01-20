@@ -74,7 +74,34 @@ const handleSaveNotes = () => {
                 <textarea onChange={(e)=>setNotesInput(e.target.value)} name="comments" rows={8} cols={40} />
                 <button onClick={handleSaveNotes}>Save</button>
             </label>
+            <AddToCollection 
+                token={token}
+            />
     </div>
     </>
   )
+}
+
+export function AddToCollection( {token}) {
+    const [myCollections, setMyCollections] = useState([])
+    axios.get('https://homepare-backend.onrender.com/collections',
+    {
+        headers: {
+            authorization: `x-access-token ${token}`
+        }
+    }).then((res) => {
+        setMyCollections(res.data.search)
+    } )
+
+    return (
+        <>
+        {myCollections.map((collection) => {
+            return (
+                <select>
+                <option></option>
+                </select>
+            )
+        )}}
+        </>
+    )
 }
