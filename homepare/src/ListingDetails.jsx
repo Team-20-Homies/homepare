@@ -55,7 +55,7 @@ const handleSaveNotes = () => {
 
   return (
     <>
-    <div className="detailsCard">
+    <div key={listingId} className="detailsCard">
             <h1>Listing Details</h1>
             
             <img src={previewImage} alt="thumbnail of home" width={imgWidth}/>
