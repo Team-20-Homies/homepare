@@ -24,9 +24,9 @@ export function UserListings({token}) {
             authorization: `x-access-token ${token}`
             }
     }).then((res) => {
-    console.log(`homes from db ${res.data.homes}`);
+    // console.log(`homes from db ${res.data.homes}`);
     setMyListings(res.data.homes)})
-    }, [])
+    }, [ token ])
 
     return (
         <>

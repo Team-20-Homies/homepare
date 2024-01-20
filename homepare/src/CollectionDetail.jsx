@@ -1,6 +1,6 @@
-import { ListingDetails } from "./ListingDetails";
-import { DetailsCard } from "./detailsCard";
-import { ListingInput } from "./listingInput";
+// import { ListingDetails } from "./ListingDetails";
+// import { DetailsCard } from "./detailsCard";
+// import { ListingInput } from "./listingInput";
 import { ComparisonTable } from "./comparisonTable";
 import homeData from "./data/homesfromDB.json";
 import { useState } from "react";
