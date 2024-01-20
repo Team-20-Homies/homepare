@@ -1,4 +1,4 @@
-import { ListingDetailsCard } from './ListingDetails'
+import { ListingDetailsCard } from './ListingDetailsCard'
 import { ListingInput } from './listingInput'
 import { useEffect, useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
