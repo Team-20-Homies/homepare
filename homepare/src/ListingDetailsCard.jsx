@@ -95,13 +95,13 @@ export function AddToCollection( {token}) {
 
     return (
         <>
-        {myCollections.map((collection) => {
+        {/* {myCollections.map((collection) => {
             return (
                 <select>
                 <option></option>
                 </select>
             )
-        )}}
+        )}} */}
         </>
     )
 }

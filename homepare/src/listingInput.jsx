@@ -24,7 +24,8 @@ export function Preview( { token, address, previewImage, squareFootage, bathroom
     return (
         <>
         <Modal opened={opened} onClose={close} centered>
-            <SearchDetailsCard 
+            <DetailsCard 
+            token={token}
             address={address}
             previewImage={previewImage}
             squareFootage={squareFootage}
@@ -51,7 +52,7 @@ export function Preview( { token, address, previewImage, squareFootage, bathroom
     )
 }
 
-const SearchBar = ( {token} ) => {
+const SearchBar = ({token}) => {
     const [input, setInput] = useState('');
     const [listingList, setListingList] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -87,6 +88,7 @@ const SearchBar = ( {token} ) => {
         {listingList.map((listing) => {
             return (
                 <Preview 
+                    token={token}
                     key={listing.identifier.Id}
                     address={listing.address.oneLine}
                     // previewImage={listing.images[0].Thumbnail}

@@ -1,9 +1,40 @@
-import { useState } from "react"
-import Preview from "./listingInput"
-import { list } from "postcss"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-export function SearchDetailsCard({token, address, previewImage, squareFootage, bathrooms, bedrooms, propertyType, hoa, garage, price, listingId, halfBathrooms }) {
+
+export function DetailsCard({
+    token, 
+    inMyListing, 
+    address, 
+    previewImage, 
+    squareFootage, 
+    bathrooms, 
+    bedrooms, 
+    propertyType, 
+    hoa, 
+    garage, 
+    price, 
+    listingId, 
+    halfBathrooms }) {
+
+    const [addListing, setAddListing] = useState([])
+    const [preferences, setPreferences] = useState({
+        bathrooms : 0,
+        bedrooms : 0,
+        garage : false ,
+        hoa : false,
+        yard : false})
+
+    useEffect(() => {
+        axios.get('https://homepare-backend.onrender.com/user-preference',{
+            headers: {
+              authorization: `x-access-token ${token}`
+            }
+          }).then((res) => {
+            setPreferences(res.data)
+            console.log(res.data)
+     })}, [token])
+    
 
     
     const handleAddListingClick = () => {
@@ -40,6 +71,8 @@ export function SearchDetailsCard({token, address, previewImage, squareFootage, 
     // }
 
     const imgWidth = "200px";
+
+    console.log('here in details card')
     
         return (
             <div className="detailsCard">
@@ -56,11 +89,11 @@ export function SearchDetailsCard({token, address, previewImage, squareFootage, 
             <p>Property Type: {propertyType}</p>
             <p>HOA: {hoa}</p>
             <p>Garage: {garage}</p>
-            <label>
+            {inMyListing && <label>
                 Comments/Notes:
-                <textarea onChange={(e)=>setNotesInput(e.target.value)} name="comments" rows={8} cols={40} />
-                {/* <button onClick={handleSaveNotes}>Save</button> */}
-            </label>
+                <textarea name="comments" rows={8} cols={40} />
+                <button onClick={handleSaveNotes}>Save</button>
+            </label>}
             <button onClick={handleAddListingClick}>
                 Add to My Listings</button>
             </div>
