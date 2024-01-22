@@ -3,6 +3,9 @@ import { Link } from "react-router-dom"
 
 
 export function UserAccount() {
+
+
+
    return (
     <>
     <div className="w-full h-screen flex justify-center items-center">
@@ -10,18 +13,18 @@ export function UserAccount() {
     <h1>Your account details:</h1>
     <TextInput
     label="Update E-mail address"
-    placeholder="E-mail address"
+    placeholder="New E-mail address"
     />
     <TextInput
     label="Update Username:"
-    placeholder="Username"
+    placeholder="New Username"
     />
     <TextInput
     label="Update Password:"
-    placeholder="Password:"
+    placeholder="New Password:"
     />
     <br></br>
-    <Button>Save</Button>
+    <Button type="submit">Save</Button>
     &nbsp;
     <Link to="/logout"><Button>Logout?</Button></Link>
     </div>

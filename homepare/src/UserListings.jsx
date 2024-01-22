@@ -91,7 +91,7 @@ export function AddToCollection( {token} ) {
     axios.get('https://homepare-backend.onrender.com/collections',
     {
         headers: {
-            authorization: {"x-access-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWE5YTJiYmZmMDIxZGQwYmU0NDY3YWYiLCJpYXQiOjE3MDU4NzU4MzUsImV4cCI6MTcwNTk2MjIzNX0.INVOpKLldNLr_cgNylsRFNgC3euaCu8eyfVHw63OJFQ"}
+            authorization: `x-access-token ${token}`
         }
     }).then((res) => {
         setMyCollections(res.data.search)
