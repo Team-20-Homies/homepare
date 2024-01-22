@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Route, useNavigate, Link } from "react-router-dom";
 import { Questionnaire } from "./questionnaire";
-import { TextInput, PasswordInput, Button, Group, Box } from '@mantine/core';
+import { TextInput, PasswordInput, Button } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { IconAt, IconUserCircle, IconAsterisk } from "@tabler/icons-react";
 import { useState } from "react";
@@ -97,7 +97,6 @@ export function Register({setAuth}) {
     
         <Button type="submit">Register</Button>
         </form>
-        {/* <Questionnaire /> */}
         </div>
         </div>
         </>
