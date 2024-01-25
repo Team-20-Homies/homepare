@@ -11,8 +11,6 @@ export function NewCollection( {token} ) {
   
   
     const handleSaveCollection = (e) => {
-      console.log("save button clicked");
-      console.log(collectionInput);
       e.preventDefault();
       axios.post(
         "https://homepare-backend.onrender.com/collections",

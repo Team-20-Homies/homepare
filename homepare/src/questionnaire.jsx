@@ -6,7 +6,6 @@ import { Button, Text, Title, Group } from "@mantine/core";
 import { IconArrowRight, IconArrowLeft, IconCheckbox } from '@tabler/icons-react';
 
 export function Questionnaire( {token}) {
-  console.log(questionnaireData);
 
   const [index, setIndex] = useState(0);
   const [recordedAnswers, setRecordedAnswers] = useState(
@@ -20,7 +19,6 @@ export function Questionnaire( {token}) {
   const navigate = useNavigate();
 
   const handleSelectedAnswer = (answer) => {
-    console.log("selected answer", answer);
     setSelectedAnswer(answer);
   };
 
@@ -36,14 +34,13 @@ export function Questionnaire( {token}) {
       value: null,
       text: null
     });
-    console.log("newAnswersArray[index + 1]", newAnswersArray[index + 1]);
   };
 
   const handleBackClick = () => {
     setIndex(index === 0 ? index : index - 1);
 
     setSelectedAnswer(recordedAnswers[index - 1]);
-    console.log("newAnswersArray[index - 1]", recordedAnswers[index + 1]);
+    
   };
 
   const handleConfirmClick = () => {
@@ -87,7 +84,7 @@ export function Questionnaire( {token}) {
           <form>
             <Text fw={500} size="xl" my={10}>{questionnaireData[index].question}</Text>
             {questionnaireData[index].answers.map((answerObject) => {
-              console.log(answerObject);
+              
               return (
                 // eslint-disable-next-line react/jsx-key
                 <div>

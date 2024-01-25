@@ -29,7 +29,6 @@ function App() {
   const setAuth = (username, token) => {
     setUsername(username);
     setToken(token);
-    console.log(token);
   };
 
   return (
