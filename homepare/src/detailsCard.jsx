@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { IconHomeOff } from '@tabler/icons-react';
+import { IconHomeStar } from '@tabler/icons-react';
 import {
   Card,
   SimpleGrid,
@@ -58,6 +58,11 @@ export function DetailsCard({
      });
   }, [token]);
 
+  //if previewimage wasnt passed in or error set a default value
+  // if (!previewImage) {
+  //   previewImage = 
+  // }
+
   const handleAddListingClick = () => {
     setAddListing();
     axios
@@ -86,6 +91,10 @@ export function DetailsCard({
      });
   };
 
+  const returnToSearch = () => {
+    window.location.reload()
+  }
+
   const handleSaveNotes = () => {
     // post notes to API
     axios
@@ -112,9 +121,9 @@ export function DetailsCard({
     <>
     { errorMessage && <Text c="red" >{errorMessage}</Text>}
       <div className="detailsCard">
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <Card shadow="sm" padding="lg" m="lg" radius="md" withBorder >
           <Card.Section>
-            <Image src={previewImage} className="detailsCardImage" alt="thumbnail of home" />
+        {previewImage ? <Image src={previewImage} className="detailsCardImage" alt="thumbnail of home" /> : <Group justify="center"><IconHomeStar size={100} /></Group>}
           </Card.Section>
           <Text size="lg" fw={700} ta="center">
             {address}
@@ -189,6 +198,7 @@ export function DetailsCard({
               updateCollection={updateCollection} />
             </>
           ) : (
+            <>
             <Button
               color="blue"
               fullWidth
@@ -198,10 +208,20 @@ export function DetailsCard({
             >
               Add to My Listings
             </Button>
+            <Button
+              color="blue"
+              fullWidth
+              mt="md"
+              radius="md"
+              onClick={returnToSearch}
+            >
+              Cancel
+            </Button>
+            </>
           )}
         </Card>
       </div>
-    </>
+    </> 
   );
 }
 
@@ -210,7 +230,7 @@ const getCompareIcon = (a,b) => {
   else return "❌";
 }
 
-export function AddToCollection({ close, token, listingId, updateCollection }) {
+export function  AddToCollection({ close, token, listingId, updateCollection }) {
   const [myCollections, setMyCollections] = useState([]);
   const [selectedCollection, setSelectedCollection] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -295,7 +315,7 @@ export function AddToCollection({ close, token, listingId, updateCollection }) {
               ))}
             </select>
           </label>
-          <button type="submit">Add</button>
+          <Button type="submit" size="xs" color="gray">Add</Button>
         </form>
       </>
     );

@@ -46,13 +46,13 @@ export function CollectionDetail({ token }) {
       <CloseButton size="lg"  />
       </Link></Group>
       {listingCheckBoxes.find((checkedbox) => checkedbox === true) && (
-        <Group justify="Center"><Button size="sm" m={5} variant="outline" onClick={open}>Compare?</Button></Group>
+        <Group justify="Center"><Button size="sm" m={5} variant="light" onClick={open}>Compare?</Button></Group>
       )}
       <Modal
         opened={opened}
         onClose={close}
         title=""
-        fullScreen
+        size="auto"
         radius={0}
         transitionProps={{ transition: "fade", duration: 200 }}
       >
@@ -69,8 +69,8 @@ export function CollectionDetail({ token }) {
 
       <Flex
       gap="xs"
-      justify="flex-start"
-      align="flex-start"
+      justify="center"
+      align="flex-center"
       direction="row"
       wrap="wrap"
     >
@@ -90,7 +90,7 @@ export function CollectionDetail({ token }) {
                 width={thumbWidth}
                 height={thumbHeight}
               />
-              <Text size="sm" truncate="end">{listing.address}</Text>
+              <Text tt="capitalize" size="sm" truncate="end">{listing.address}</Text>
         
                 <Checkbox
                   type="checkbox"
