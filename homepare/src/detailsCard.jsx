@@ -102,8 +102,7 @@ export function DetailsCard({
           },
         }
       )
-      .then(close())
-      .then(navigate("/"))
+      .then(() => close())
       .catch((err) => {
         return setErrorMessage(err.response.data.message)
      });
@@ -277,7 +276,7 @@ export function AddToCollection({ close, token, listingId, updateCollection }) {
         })))
         .then((res) => updateCollection(res.data))
 
-        // .then(close())
+        .then(() => close())
         .catch((err) => {
           return setErrorMessage(err.response.data.message)
        });
