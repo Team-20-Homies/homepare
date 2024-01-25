@@ -106,7 +106,7 @@ export function ComparisonTable({ homeData, token }) {
               <Table.Th>Bathrooms</Table.Th>
               <Table.Th>HOA</Table.Th>
               <Table.Th>Garage</Table.Th>
-              <Table.Th>Your Sentiment</Table.Th>
+              <Table.Th>Sentiment</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Thead>
@@ -132,6 +132,7 @@ export function ComparisonTable({ homeData, token }) {
               <Table.Th className="checklist-row-in-comparison-table">
                 {preferences.garage === true ? "Yes" : "No"}
               </Table.Th>
+              <Table.Th className="checklist-row-in-comparison-table"></Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
