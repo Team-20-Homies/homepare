@@ -41,7 +41,6 @@ export function EditChecklist({ token }) {
             garage : `${res.data.garage}` ,
             hoa : `${res.data.hoa}` ,
         })
-        console.log(res.data)
       }).catch((err) => {
         return setError(err.response.data.message)
      })}, [token])
@@ -51,12 +50,6 @@ export function EditChecklist({ token }) {
 
     const handleSubmit = (values) => {
         const { bathrooms, bedrooms, garage, hoa } = values;
-        console.log('updating user preferences')
-        console.log(`${token}`)
-        console.log(bathrooms)
-        console.log(bedrooms)
-        console.log(hoa)
-        console.log(garage)
         axios.put('https://homepare-backend.onrender.com/user-preference', {
             "bathrooms": bathrooms,
             "bedrooms": bedrooms,
@@ -74,7 +67,6 @@ export function EditChecklist({ token }) {
     
 }
 
-console.log(form.initialValues)
 
     return (
         <>

@@ -11,7 +11,6 @@ export function CollectionDetail({ token }) {
   const location = useLocation();
   const collectionListings = location.state;
 
-  console.log("cl", collectionListings);
 
   const [listingCheckBoxes, setlistingCheckBoxes] = useState(
     new Array(collectionListings.length).fill(false)
@@ -76,7 +75,7 @@ export function CollectionDetail({ token }) {
       wrap="wrap"
     >
         {collectionListings.map((listing, index) => {
-          console.log("listing", listing);
+          
           return (
             <Box
               p="xs"

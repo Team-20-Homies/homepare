@@ -92,7 +92,6 @@ export function CollectionListings({ token, index, thumbHeight, thumbWidth }) {
 
   const handleModalOpen = (listing) => {
     if (listing.images.length === 0) {
-      console.log("Inside listing If");
       listing.images.push({
         0: "https://assets-global.website-files.com/619e763bb3de7b56e6107aeb/61f2b0e1f0a732ae15de4d98_open-house-ideas-header-image-scaled.jpeg",
       });
@@ -104,7 +103,6 @@ export function CollectionListings({ token, index, thumbHeight, thumbWidth }) {
   };
    const handleAddNewListingToCollection = (newListing) => {
     setCollectionListings([...collectionListings, newListing])
-    console.log("NEw listing:", newListing)
   }
   return (
     <>

@@ -32,11 +32,7 @@ export function Register({setAuth}) {
 
     const handleSubmit = (values) => {
         const { username, password, email, first_name, last_name } = values;
-        console.log(username);
-        console.log(password);
-        console.log(email);
-        console.log(first_name);
-        console.log(last_name);
+        
         axios.post('https://homepare-backend.onrender.com/register', {
             "username": username,
             "password": password,
@@ -49,7 +45,7 @@ export function Register({setAuth}) {
             "username": username,
             "password": password,
         })}).then((res) => {
-            console.log(res);
+            
             setAuth(username, res.data.token)
             navigate('/questionnaire')
         }).catch((err) => {

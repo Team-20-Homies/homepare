@@ -20,14 +20,11 @@ export function Checklist ({token}) {
         }
       }).then((res) => {
         setPreferences(res.data)
-        console.log(res.data)
       }).catch((err) => {
         return setErrorMessage(err.response.data.message)
      })}, [token])
 
 
-
-    console.log('this is checklist')
     return(
         <>
         <div className="w-full h-screen flex justify-center items-center">

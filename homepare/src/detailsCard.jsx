@@ -53,7 +53,6 @@ export function DetailsCard({
       })
       .then((res) => {
         setPreferences(res.data);
-        console.log(res.data);
       }).catch((err) => {
         return setErrorMessage(err.response.data.message)
      });
@@ -65,7 +64,6 @@ export function DetailsCard({
   // }
 
   const handleAddListingClick = () => {
-    console.log("add listing button");
     setAddListing();
     axios
       .post(
@@ -111,8 +109,7 @@ export function DetailsCard({
           },
         }
       )
-      .then(close())
-      .then(navigate("/"))
+      .then(() => close())
       .catch((err) => {
         return setErrorMessage(err.response.data.message)
      });
@@ -251,8 +248,6 @@ export function  AddToCollection({ close, token, listingId, updateCollection }) 
         })
         .then((res) => {
           setMyCollections(res.data.search);
-          console.log(`collections data ${res.data.search}`);
-          console.log(myCollections);
         }).catch((err) => {
           return setErrorMessage(err.response.data.message)
        });
@@ -277,7 +272,6 @@ export function  AddToCollection({ close, token, listingId, updateCollection }) 
       const selectedCollection = myCollections.find(
         (collection) => collection._id === form._id
       );
-      console.log(selectedCollection);
       selectedCollection.houseID.push(listingId);
       axios
         .put(
@@ -297,7 +291,7 @@ export function  AddToCollection({ close, token, listingId, updateCollection }) 
         })))
         .then((res) => updateCollection(res.data))
 
-        // .then(close())
+        .then(() => close())
         .catch((err) => {
           return setErrorMessage(err.response.data.message)
        });

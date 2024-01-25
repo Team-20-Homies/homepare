@@ -21,7 +21,6 @@ export function ComparisonTable({ homeData, token }) {
       })
       .then((res) => {
         setPreferences(res.data);
-        console.log(res.data);
       }).catch((err) => {
         return setErrorMessage(err.response.data.message)
      });

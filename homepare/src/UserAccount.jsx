@@ -30,7 +30,7 @@ export function UserAccount({ token }) {
          headers: {
             authorization: `x-access-token ${token}`
          }}).then((res) => {
-            console.log(res.data.user[0])
+            
             setUserProfile(res.data.user[0])
       }).catch((err) => {
          return setMessage(err.response.data.message)
