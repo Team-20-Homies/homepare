@@ -36,28 +36,25 @@ div.userCollection {
   text-decoration: underline;
 }
 
+/*  */
+
 .collections-wrapper-in-user-collections {
   padding: 10px;
 }
 
-hr.rounded-divider-in-user-collections {
-  border-top: 3px solid #bbb;
-  border-radius: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
 
 .listing-thumbnail-in-user-collections {
   max-width: 150px;
-  max-height: 150px;
-  border: solid aqua 2px;
+  border: solid rgb(211, 211, 211) 1px;
   font-size:x-small;
-  margin: 15px;
+  margin: 5px;
 }
 
 .thumbnail-text-in-user-collections {
   text-wrap: wrap;
 }
+
+/* Collections Detail */
 
 .thumnail-grid-in-collections-detail {
   display: grid;
